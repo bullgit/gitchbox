@@ -1,0 +1,25 @@
+{
+  "name": "gitchbox",
+  "version": "1.0.0",
+  "description": "Where the gitches share their favorite sounds.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bullgit/gitchbox.git"
+  },
+  "author": "bullgit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bullgit/gitchbox/issues"
+  },
+  "homepage": "https://github.com/bullgit/gitchbox",
+  "dependencies": {
+    "handlebars": "^3.0.1",
+    "node-gitter": "^1.2.8",
+    "twitter": "^1.2.5"
+  }
+}
