@@ -1,5 +1,6 @@
 var Gitter = require('node-gitter');
 var Twitter = require('twitter');
+var Firebase = require('firebase');
 
 // get configuration infos from config.js file
 // if non available, copy config.example.js and fill out the 
@@ -11,6 +12,14 @@ var twitter = new Twitter({
   consumer_secret: config.twitter.api.consumer_secret,
   access_token_key: config.twitter.api.access_token_key,
   access_token_secret: config.twitter.api.access_token_secret
+});
+var jukes = new Firebase(config.firebase.url + '/' + config.firebase.name);
+jukes.authWithCustomToken(config.firebase.secret, function(error, authData) {
+  if (error) {
+    console.log("Firebase login Failed!");
+  } else {
+    console.log("Firebase login Succeeded!");
+  }
 });
 
 // gitter room name from config gets joined, to recieve the room id on start
@@ -52,11 +61,27 @@ function listenToMessages () {
         // if there is more then 0 urls, then use the first one
         if (urls.length > 0) {
           
+          var id = data.id;
           var link = urls[0].url;
+          var fullname = data.fromUser.displayName;
+          var username = data.fromUser.username;
+          
+          var sent = data.sent;
+          var d = new Date(sent);
+          var time = d.getTime();
           
           // the tweet gets composed from the template
           // to change it change it in the config file
           var tweet = config.template({ link: link });
+          
+          // juke is the data which will be sent to the firebase instance
+          var juke = {
+            id: id,
+            link: link,
+            fullname: fullname,
+            username: username,
+            time: time
+          }
           
           twitter.post('statuses/update', { status: tweet }, function(error, tweet, response){
             
@@ -67,7 +92,9 @@ function listenToMessages () {
             }
             
           });
-        
+          
+          jukes.push(juke);
+          
         }
         
       }
