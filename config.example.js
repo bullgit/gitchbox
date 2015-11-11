@@ -24,26 +24,26 @@ var config = {
       access_token_key: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
       access_token_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     },
-    
+
     // name of account, from which the bot will tweet
     accountname: 'awesomename'
 
   },
-  
+
   // firebase settings for saving the songs to a firebase instance
   firebase: {
-    
+
     // url of your firebase instance in form of https://<YOUR FIREBASE>.firebaseio.com
     url: 'https://example.firebaseio.com',
-    
+
     // name of the child reference
     name: 'test',
-    
+
     // a secret of your firebase instance, available at the secret panel in the dashboard
     secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    
+
   },
-  
+
   // template of the tweet, use {{link}} where the link should be placed
   template: Handlebars.compile('{{link}} #awesomehashtag')
 
