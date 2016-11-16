@@ -13,12 +13,12 @@ var twitter = new Twitter({
   access_token_key: config.twitter.api.access_token_key,
   access_token_secret: config.twitter.api.access_token_secret
 });
-var jukes = new Firebase(config.firebase.url + '/' + config.firebase.name);
+var jukes = new Firebase(`${config.firebase.url}/${config.firebase.name}`);
 jukes.authWithCustomToken(config.firebase.secret, function(error, authData) {
   if (error) {
-    console.log("Firebase login Failed!");
+    console.log('Firebase login Failed!');
   } else {
-    console.log("Firebase login Succeeded!");
+    console.log('Firebase login Succeeded!');
   }
 });
 
@@ -45,7 +45,7 @@ function listenToMessages () {
 
     // The 'snapshot' event is emitted once, with the last messages in the room
     events.on('snapshot', function(snapshot) {
-      console.log(snapshot.length + ' messages in the snapshot');
+      console.log(`${snapshot.length} messages in the snapshot`);
     });
 
     // event gets called, when a new message gets written in the configured channel
@@ -88,7 +88,7 @@ function listenToMessages () {
             if (error) {
               console.log(error);
             } else {
-              console.log('Tweet successfully sent and viewable at https://twitter.com/' + config.twitter.accountname + '/status/' + tweet.id_str);
+              console.log(`Tweet successfully sent and viewable at https://twitter.com/${config.twitter.accountname}/status/${tweet.id_str}`);
             }
 
           });
