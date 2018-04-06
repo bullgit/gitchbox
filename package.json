@@ -1,6 +1,6 @@
 {
   "name": "gitchbox",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Where the gitches share their favorite sounds.",
   "main": "index.js",
   "scripts": {
@@ -19,8 +19,7 @@
   "homepage": "https://github.com/bullgit/gitchbox",
   "dependencies": {
     "firebase": "^2.2.3",
-    "handlebars": "^3.0.1",
-    "node-gitter": "^1.2.8",
+    "node-gitter": "^2.1.0",
     "twitter": "^1.2.5"
   }
 }

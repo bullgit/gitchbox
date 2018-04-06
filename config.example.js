@@ -1,5 +1,3 @@
-var Handlebars = require('handlebars');
-
 var config = {
 
   // gitter settings for retrieving messages
@@ -44,8 +42,8 @@ var config = {
 
   },
 
-  // template of the tweet, use {{link}} where the link should be placed
-  template: Handlebars.compile('{{link}} #awesomehashtag')
+  // template of the tweet, use ${link} where the link should be placed
+  template: ({link}) => {return `${link} #awesomehashtag`}
 
 }
 
