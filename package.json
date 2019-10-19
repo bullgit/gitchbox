@@ -1,6 +1,6 @@
 {
   "name": "gitchbox",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Where the gitches share their favorite sounds.",
   "main": "index.js",
   "scripts": {
