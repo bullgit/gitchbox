@@ -20,6 +20,6 @@
   "dependencies": {
     "firebase": "^2.2.3",
     "node-gitter": "^2.1.0",
-    "twitter": "^1.2.5"
+    "twitter": "^1.7.1"
   }
 }
